@@ -23,7 +23,9 @@
             text-align: center;
             padding: 3rem 0;
             margin-bottom: 2rem;
-            border: 1px solid #000;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
         }
         h1 {
             font-size: 3.5rem;
@@ -39,7 +41,14 @@
         .intro {
             padding: 2rem;
             margin-bottom: 2rem;
-            border: 1px solid #000;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .intro:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.12);
         }
         .projects {
             display: grid;
@@ -47,19 +56,19 @@
         }
         .project {
             padding: 1.5rem;
-            border: 1px solid #000;
             background: #fff;
             border-radius: 12px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
             transition: transform 0.2s, box-shadow 0.2s;
         }
         .project:hover {
             transform: translateY(-4px);
-            box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.12);
         }
         .project h2 {
             margin-bottom: 0.5rem;
             font-weight: bold;
+            font-size: 1.4rem;
         }
         .project p {
             margin-bottom: 1rem;
@@ -87,7 +96,7 @@
             text-align: center;
             padding: 2rem;
             margin-top: 2rem;
-            border-top: 1px solid #000;
+            border-top: 1px solid #eee;
         }
         footer a {
             color: #000;
