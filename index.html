@@ -23,14 +23,18 @@
             text-align: center;
             padding: 3rem 0;
             margin-bottom: 2rem;
+            border: 1px solid #000;
         }
         h1 {
-            font-size: 3rem;
+            font-size: 3.5rem;
             margin-bottom: 0.5rem;
             font-weight: bold;
+            width: 100%;
         }
         .tagline {
-            font-size: 1.2rem;
+            font-size: 1.5rem;
+            color: #ff6b00;
+            font-weight: bold;
         }
         .intro {
             padding: 2rem;
@@ -45,6 +49,13 @@
             padding: 1.5rem;
             border: 1px solid #000;
             background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .project:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 4px 16px rgba(0,0,0,0.15);
         }
         .project h2 {
             margin-bottom: 0.5rem;
@@ -52,11 +63,15 @@
         }
         .project p {
             margin-bottom: 1rem;
+            color: #333;
         }
         .project a {
             color: #000;
             text-decoration: underline;
             font-weight: bold;
+        }
+        .project a:hover {
+            text-decoration: none;
         }
         .status {
             display: inline-block;
@@ -65,7 +80,7 @@
             font-size: 0.85rem;
             font-weight: bold;
             margin-bottom: 0.5rem;
-            background: #ff8c00;
+            background: #ff6b00;
             color: #000;
         }
         footer {
@@ -78,11 +93,23 @@
             color: #000;
             text-decoration: underline;
         }
+        .vibecoded {
+            margin-top: 1rem;
+            font-size: 0.9rem;
+        }
+        .vibecoded a {
+            color: #ff6b00;
+            font-weight: bold;
+            text-decoration: none;
+        }
+        .vibecoded a:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
     <header>
-        <h1>🏥 automedix</h1>
+        <h1>automedix</h1>
         <p class="tagline">Open Source Healthcare Solutions</p>
     </header>
 
@@ -94,7 +121,7 @@
     <div class="projects">
         <div class="project">
             <span class="status">Beta</span>
-            <h2>📦 medorder</h2>
+            <h2>medorder</h2>
             <p>Bestellung von Verbandmaterial durch Pflegeheime bei Arztpraxen. 
             Einfach, effizient, digital.</p>
             <a href="https://github.com/automedix/medorder">→ GitHub Repository</a>
@@ -102,7 +129,7 @@
 
         <div class="project">
             <span class="status">In Entwicklung</span>
-            <h2>⚡ here-me-now</h2>
+            <h2>here-me-now</h2>
             <p>Self Check-in für Patienten in Arztpraxen via NOSTR. 
             Nutzt nsec/npub als migrierbaren Identifier für maximale Privatsphäre.</p>
             <a href="https://github.com/automedix/here-me-now">→ GitHub Repository</a>
@@ -110,7 +137,7 @@
 
         <div class="project">
             <span class="status">In Planung</span>
-            <h2>📝 myhistoree</h2>
+            <h2>myhistoree</h2>
             <p>Online Anamneseerhebung für den erstmaligen Praxisbesuch. 
             Patienten können bequem von zuhause ihre Vorgeschichte eintragen.</p>
             <a href="https://github.com/automedix/myhistoree">→ GitHub Repository</a>
@@ -118,8 +145,9 @@
     </div>
 
     <footer>
-        <p>🄯 automedix – Free and Open Source Software</p>
+        <p>automedix – Free and Open Source Software</p>
         <p><a href="https://github.com/automedix">github.com/automedix</a></p>
+        <p class="vibecoded">Vibecoded mit <a href="https://clawi.ai">Clawi.ai</a></p>
     </footer>
 </body>
 </html>
