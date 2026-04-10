@@ -1,0 +1,14 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Klassenfahrt Berlin 2026//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:berlin-2026-33@klassenfahrt
+SUMMARY:Rueckreise nach Minden
+DTSTART:20260327T132600
+DTEND:20260327T165100
+DESCRIPTION:Rueckreise ab Berlin 13:26 Uhr. Umstieg in Hannover ca. 15:35-16:00 Uhr (Einkaufsmoeglichkeit). Ankunft Minden 16:51 Uhr.
+LOCATION:Berlin → Hannover → Minden
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,14 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Klassenfahrt Berlin 2026//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:berlin-2026-05@klassenfahrt
+SUMMARY:Zimmer beziehen - A&O Hostel Berlin Mitte
+DTSTART:20260323T140000
+DTEND:20260323T150000
+DESCRIPTION:Zimmer beziehen im A&O-Hostel Berlin Mitte\, Koepenicker Str. 127-129\, 10179 Berlin.
+LOCATION:A&O-Hostel Berlin Mitte, Koepenicker Str. 127-129, 10179 Berlin
+END:VEVENT
+END:VCALENDAR

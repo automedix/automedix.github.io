@@ -1,0 +1,14 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Klassenfahrt Berlin 2026//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:berlin-2026-30@klassenfahrt
+SUMMARY:Olympiastadion Berlin
+DTSTART:20260327T140000
+DTEND:20260327T150000
+DESCRIPTION:Olympiastadion\, 14:00-15:00 Uhr. Start: Alexanderplatz S9 13:03 oder S3 13:13 Uhr (26 Min. Fahrtzeit). Tagestickets kaufen.
+LOCATION:Olympiastadion Berlin, Olympischer Platz 3, 14053 Berlin
+END:VEVENT
+END:VCALENDAR

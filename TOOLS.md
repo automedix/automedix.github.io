@@ -38,3 +38,15 @@ Skills are shared. Your setup is yours. Keeping them apart means you can update 
 ---
 
 Add whatever helps you do your job. This is your cheat sheet.
+
+### Wallets
+- **Lightning NWC Wallet**: via `npx @getalby/cli get-balance` — Alby/NWC Wallet
+- **Cashu Wallet**: SQLite unter `~/.cashu/wallet/wallet.sqlite3`
+  - **EINZIGE erlaubte Mint:** `https://mint.macadamia.cash` — keine anderen Mints verwenden!
+  - Python3 fehlt in dieser Sandbox → CLI `/usr/local/bin/cashu` nicht nutzbar
+  - **Balance lesen**: `node /root/.openclaw/workspace/scripts/cashu-melt.js --dry-run`
+  - **Melt (alles)**: `node /root/.openclaw/workspace/scripts/cashu-melt.js`
+  - **Melt (teilweise)**: `node /root/.openclaw/workspace/scripts/cashu-melt.js --amount <sats>`
+  - `better-sqlite3` ist installiert unter `/root/.openclaw/workspace/scripts/node_modules/`
+  - ⚠️ Lightning-Routing schlägt für Beträge < ~50 Sats oft fehl → Script gibt dann Cashu-Token aus
+  - ⚠️ **WICHTIG:** Token sofort einlösen oder importieren — Keyset-Rotation kann alte Proofs ungültig machen

@@ -1,0 +1,14 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Klassenfahrt Berlin 2026//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:berlin-2026-10@klassenfahrt
+SUMMARY:Gedenkstaette Hohenschoenhausen
+DTSTART:20260324T124000
+DTEND:20260324T142500
+DESCRIPTION:Hohenschoenhausen\, 12:40-14:25 Uhr. Start: 11:30 Uhr. Tagestickets kaufen.
+LOCATION:Gedenkstaette Berlin-Hohenschoenhausen
+END:VEVENT
+END:VCALENDAR

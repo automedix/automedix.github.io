@@ -1,0 +1,14 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Klassenfahrt Berlin 2026//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:berlin-2026-20@klassenfahrt
+SUMMARY:Juedisches Museum Berlin
+DTSTART:20260325T132000
+DTEND:20260325T154500
+DESCRIPTION:Juedisches Museum Berlin\, 13:20-15:45 Uhr. Start: U Bundestag ca. 12:45 Uhr.
+LOCATION:Juedisches Museum Berlin, Lindenstrasse 9-14, 10969 Berlin
+END:VEVENT
+END:VCALENDAR

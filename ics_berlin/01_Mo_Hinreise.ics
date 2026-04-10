@@ -1,0 +1,14 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Klassenfahrt Berlin 2026//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:berlin-2026-01@klassenfahrt
+SUMMARY:Hinreise nach Berlin
+DTSTART:20260323T090000
+DTEND:20260323T111500
+DESCRIPTION:Abfahrt 9:00 Uhr. Ankunft Berlin 11:15 Uhr. Zu Fuss zur Unterkunft\, Gepaeck aufbewahren lassen.
+LOCATION:Minden → Berlin
+END:VEVENT
+END:VCALENDAR

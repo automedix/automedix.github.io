@@ -1,0 +1,14 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Klassenfahrt Berlin 2026//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:berlin-2026-17@klassenfahrt
+SUMMARY:Bundestag - Fuehrung & Gespraech Dr. O. Vogt
+DTSTART:20260325T083500
+DTEND:20260325T120000
+DESCRIPTION:Start: 8:35 Uhr (U Bundestag).\n9:30 Uhr: Einlasskontrolle\n10:00 Uhr: Fuehrung/Vortrag\n11:00 Uhr: Gespraech mit Dr. O. Vogt\nKuppelbesichtigung.\nLichtbildausweis/Personalausweis erforderlich!
+LOCATION:Deutscher Bundestag, Platz der Republik 1, 11011 Berlin
+END:VEVENT
+END:VCALENDAR

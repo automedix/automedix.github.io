@@ -1,0 +1,36 @@
+{
+  "version": 1,
+  "updatedAt": "2026-04-10T06:06:20.510Z",
+  "entries": {
+    "memory:memory/2026-03-07.md:1:32": {
+      "key": "memory:memory/2026-03-07.md:1:32",
+      "path": "memory/2026-03-07.md",
+      "startLine": 1,
+      "endLine": 32,
+      "source": "memory",
+      "snippet": "# 2026-03-07 ## Cashu Wallet eingerichtet - CLI: `cashu` (nutshell v0.19.2), installiert via pip - **Standard-Mint (aktiv):** `https://mint.macadamia.cash` - **Bekannte Mints (Empfang / swap):** - `https://mint.minibits.cash` - `https://mint.coinos.io` - `https://mint.0xchat.com` - Config: `~/.cashu/.env` ## Alby Hub verbunden - NWC-Schlüssel gespeichert unter `~/.alby-cli/connection-secret.key` - Guthaben beim Setup: 228.309 Sats - lightning address: jungle@getalby.com ## TODO / Demnächst - **Brave Search API** einrichten → https://brave.com/search/api/ - Eigenen API-Key registrieren (kostenlos, $5 Credits/Monat) - Ggf. in OpenClaw als eigenen Key konfigurieren für höhere Li",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "totalScore": 0.7358087806858794,
+      "maxScore": 0.7358087806858794,
+      "firstRecalledAt": "2026-04-10T06:06:20.510Z",
+      "lastRecalledAt": "2026-04-10T06:06:20.510Z",
+      "queryHashes": [
+        "eaa34085796c"
+      ],
+      "recallDays": [
+        "2026-04-10"
+      ],
+      "conceptTags": [
+        "v0.19.2",
+        "standard-mint",
+        "mint.macadamia.cash",
+        "mint.minibits.cash",
+        "mint.coinos.io",
+        "mint.0xchat.com",
+        "nwc-schlüssel",
+        "alby-cli/connection-secret.key"
+      ]
+    }
+  }
+}
