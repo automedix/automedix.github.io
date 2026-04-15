@@ -129,6 +129,19 @@
             background: #fea806;
             color: #000;
         }
+        .commits-badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            margin-left: 0.5rem;
+            background: #000;
+            color: #fea806;
+            min-width: 60px;
+            text-align: center;
+        }
         footer {
             text-align: center;
             padding: 2rem;
@@ -187,32 +200,44 @@
     </div>
 
     <div class="projects">
-        <div class="project">
-            <span class="status">Beta</span>
+        <div class="project" data-repo="medorder">
+            <div>
+                <span class="status">Beta</span>
+                <span class="commits-badge">...</span>
+            </div>
             <h2>medorder</h2>
             <p>Bestellung von Verbandmaterial durch Pflegeheime bei Arztpraxen. 
             Einfach, effizient, digital.</p>
             <a href="https://github.com/automedix/medorder">→ GitHub Repository</a>
         </div>
 
-        <div class="project">
-            <span class="status">In Entwicklung</span>
+        <div class="project" data-repo="here-me-now">
+            <div>
+                <span class="status">In Entwicklung</span>
+                <span class="commits-badge">...</span>
+            </div>
             <h2>here-me-now</h2>
             <p>Self Check-in für Patienten in Arztpraxen via NOSTR. 
             Nutzt nsec/npub als migrierbaren Identifier für maximale Privatsphäre.</p>
             <a href="https://github.com/automedix/here-me-now">→ GitHub Repository</a>
         </div>
 
-        <div class="project">
-            <span class="status">In Planung</span>
+        <div class="project" data-repo="myhistoree">
+            <div>
+                <span class="status">In Planung</span>
+                <span class="commits-badge">...</span>
+            </div>
             <h2>myhistoree</h2>
             <p>Online Anamneseerhebung für den erstmaligen Praxisbesuch. 
             Patienten können bequem von zuhause ihre Vorgeschichte eintragen.</p>
             <a href="https://github.com/automedix/myhistoree">→ GitHub Repository</a>
         </div>
 
-        <div class="project">
-            <span class="status">In Entwicklung</span>
+        <div class="project" data-repo="attestr">
+            <div>
+                <span class="status">In Entwicklung</span>
+                <span class="commits-badge">...</span>
+            </div>
             <h2>attestr</h2>
             <p>Schnelle und einfache Bezahlung und Übermittlung von kostenpflichtigen Attesten,
             die im Rahmen von Videokonsultationen ausgestellt werden. Zahlung via Lightning.</p>
@@ -244,5 +269,56 @@
         <p><a href="https://github.com/automedix">github.com/automedix</a></p>
         <p class="vibecoded">Vibecoded mit <a href="https://clawi.ai">Clawi.ai</a></p>
     </footer>
+
+    <script>
+        async function loadCommitCounts() {
+            const projects = document.querySelectorAll('.project[data-repo]');
+            const commitCounts = {};
+            let maxCommits = 0;
+
+            for (const project of projects) {
+                const repo = project.dataset.repo;
+                const badge = project.querySelector('.commits-badge');
+                
+                try {
+                    const response = await fetch(`https://api.github.com/repos/automedix/${repo}/commits?sha=main&per_page=1`);
+                    const linkHeader = response.headers.get('link');
+                    let count = 1;
+                    
+                    if (linkHeader) {
+                        const match = linkHeader.match(/page=(\d+)>; rel="last"/);
+                        if (match) count = parseInt(match[1]);
+                    } else {
+                        const commits = await response.json();
+                        count = Array.isArray(commits) ? commits.length : 1;
+                    }
+                    
+                    commitCounts[repo] = count;
+                    if (count > maxCommits) maxCommits = count;
+                    badge.textContent = count + ' commits';
+                } catch (e) {
+                    badge.textContent = '-';
+                    commitCounts[repo] = 0;
+                }
+            }
+
+            const minWidth = 60;
+            const maxWidth = 150;
+
+            for (const project of projects) {
+                const repo = project.dataset.repo;
+                const badge = project.querySelector('.commits-badge');
+                const count = commitCounts[repo] || 0;
+                
+                if (maxCommits > 0) {
+                    const ratio = count / maxCommits;
+                    const width = minWidth + (ratio * (maxWidth - minWidth));
+                    badge.style.minWidth = width + 'px';
+                }
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', loadCommitCounts);
+    </script>
 </body>
 </html>
