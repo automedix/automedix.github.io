@@ -374,6 +374,48 @@
     </footer>
 
     <script>
+        async function getDefaultBranch(repo) {
+            try {
+                const resp = await fetch(`https://api.github.com/repos/automedix/${repo}`);
+                if (resp.ok) {
+                    const data = await resp.json();
+                    return data.default_branch;
+                }
+            } catch (e) {}
+            return 'main';
+        }
+
+        async function fetchCommitCount(repo, branch) {
+            try {
+                const resp = await fetch(`https://api.github.com/repos/automedix/${repo}/commits?sha=${branch}&per_page=1`);
+                if (!resp.ok) throw new Error('Failed');
+                
+                const linkHeader = resp.headers.get('link');
+                if (linkHeader) {
+                    const match = linkHeader.match(/page=(\d+)>; rel="last"/);
+                    if (match) return parseInt(match[1]);
+                }
+                
+                const commits = await resp.json();
+                return Array.isArray(commits) ? commits.length : 0;
+            } catch (e) {
+                throw e;
+            }
+        }
+
+        async function fetchLastCommitDate(repo, branch) {
+            try {
+                const resp = await fetch(`https://api.github.com/repos/automedix/${repo}/commits?sha=${branch}&per_page=1`);
+                if (!resp.ok) throw new Error('Failed');
+                
+                const commits = await resp.json();
+                if (Array.isArray(commits) && commits.length > 0) {
+                    return new Date(commits[0].commit.author.date);
+                }
+            } catch (e) {}
+            return null;
+        }
+
         async function loadRepoStats() {
             const projects = document.querySelectorAll('.project[data-repo]');
             const repoStats = {};
@@ -385,40 +427,20 @@
                 const daysBadge = project.querySelector('.days-badge');
                 
                 try {
-                    // Get commit count and last commit date
-                    const response = await fetch(`https://api.github.com/repos/automedix/${repo}/commits?sha=main&per_page=1`);
+                    const branch = await getDefaultBranch(repo);
+                    const count = await fetchCommitCount(repo, branch);
+                    const lastDate = await fetchLastCommitDate(repo, branch);
                     
-                    if (!response.ok) {
-                        throw new Error('Failed to fetch');
-                    }
-                    
-                    const linkHeader = response.headers.get('link');
-                    let count = 1;
-                    
-                    if (linkHeader) {
-                        const match = linkHeader.match(/page=(\d+)>; rel="last"/);
-                        if (match) count = parseInt(match[1]);
-                    } else {
-                        const commits = await response.json();
-                        count = Array.isArray(commits) ? commits.length : 1;
-                    }
-                    
-                    // Get last commit date
-                    const commitsResponse = await fetch(`https://api.github.com/repos/automedix/${repo}/commits?sha=main&per_page=1`);
-                    const commits = await commitsResponse.json();
                     let daysSince = 0;
-                    
-                    if (Array.isArray(commits) && commits.length > 0) {
-                        const lastCommitDate = new Date(commits[0].commit.author.date);
+                    if (lastDate) {
                         const now = new Date();
-                        const diffTime = Math.abs(now - lastCommitDate);
+                        const diffTime = Math.abs(now - lastDate);
                         daysSince = Math.floor(diffTime / (1000 * 60 * 60 * 24));
                     }
                     
                     repoStats[repo] = { count, daysSince };
                     if (count > maxCommits) maxCommits = count;
                     
-                    // Update badges without "c."
                     commitsBadge.textContent = count;
                     daysBadge.textContent = daysSince === 0 ? '0' : daysSince;
                 } catch (e) {
@@ -428,14 +450,12 @@
                 }
             }
 
-            // Adjust badge widths based on max commits
             const minWidth = 60;
             const maxWidth = 120;
 
             for (const project of projects) {
                 const repo = project.dataset.repo;
                 const commitsBadge = project.querySelector('.commits-badge');
-                const daysBadge = project.querySelector('.days-badge');
                 const count = repoStats[repo]?.count || 0;
                 
                 if (maxCommits > 0) {
