@@ -195,7 +195,7 @@
             background: #000;
             color: #fea806;
             min-width: 60px;
-            text-align: center;
+            text-align: right;
         }
         .days-badge {
             display: inline-block;
@@ -206,7 +206,7 @@
             background: transparent;
             color: #fea806;
             border: 2px solid #fea806;
-            min-width: 100px;
+            min-width: 50px;
             text-align: center;
         }
         footer {
@@ -278,7 +278,7 @@
                 <span class="badge-label">Anzahl der Commits</span>
             </div>
             <div class="badge-item">
-                <span class="legend-badge days">5 Tage</span>
+                <span class="legend-badge days">5</span>
                 <span class="badge-label">Tage seit dem letzten Commit</span>
             </div>
         </div>
@@ -406,7 +406,7 @@
                     
                     // Update badges without "c."
                     commitsBadge.textContent = count;
-                    daysBadge.textContent = daysSince === 0 ? 'heute' : daysSince + ' Tage';
+                    daysBadge.textContent = daysSince === 0 ? '0' : daysSince;
                 } catch (e) {
                     commitsBadge.textContent = '-';
                     daysBadge.textContent = '-';
@@ -428,7 +428,6 @@
                     const ratio = count / maxCommits;
                     const width = minWidth + (ratio * (maxWidth - minWidth));
                     commitsBadge.style.minWidth = width + 'px';
-                    daysBadge.style.minWidth = Math.max(100, width) + 'px';
                 }
             }
         }
