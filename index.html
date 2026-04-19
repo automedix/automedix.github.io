@@ -178,16 +178,21 @@
             flex-wrap: wrap;
         }
         .status {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
             padding: 0.25rem 0.75rem;
             border-radius: 20px;
             font-size: 0.85rem;
             font-weight: bold;
             background: #fea806;
             color: #000;
+            line-height: 1;
         }
         .commits-badge {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            justify-content: flex-end;
             padding: 0.25rem 0.75rem;
             border-radius: 20px;
             font-size: 0.85rem;
@@ -195,10 +200,12 @@
             background: #000;
             color: #fea806;
             min-width: 60px;
-            text-align: right;
+            line-height: 1;
         }
         .days-badge {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
             padding: 0.25rem 0.75rem;
             border-radius: 20px;
             font-size: 0.85rem;
@@ -207,7 +214,7 @@
             color: #fea806;
             border: 2px solid #fea806;
             min-width: 50px;
-            text-align: center;
+            line-height: 1;
         }
         footer {
             text-align: center;
